@@ -1,8 +1,9 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>/ife</title>
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>/ife</title>
   <style>
     :root {
       --bg-color: #f0f0f0;
@@ -12,7 +13,7 @@
     }
 
     [data-theme="dark"] {
-      --bg-color: #333;
+      --bg-color: #222;
       --text-color: #fff;
       --dot-color: #555;
       --lived-color: #4da6ff;
@@ -27,22 +28,22 @@
       min-height: 100vh;
       background-color: var(--bg-color);
       color: var(--text-color);
-      transition: background-color 0.3s ease, color 0.3s ease;
+      transition: background-color 0.3s, color 0.3s;
       padding: 20px;
     }
 
     h1 {
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
+      font-size: 2rem;
+      margin-bottom: 0.8rem;
     }
 
     input[type="number"] {
-      width: 90%;
-      max-width: 400px;
-      padding: 15px;
-      font-size: 1.5rem;
+      width: 80%;
+      max-width: 250px;
+      padding: 10px;
+      font-size: 1.2rem;
       border: 1px solid #ccc;
-      border-radius: 8px;
+      border-radius: 6px;
       margin-bottom: 1rem;
       text-align: center;
     }
@@ -50,17 +51,17 @@
     .dots-container {
       display: grid;
       grid-template-columns: repeat(10, 1fr);
-      gap: 8px;
+      gap: 5px;
       width: fit-content;
-      margin-top: 30px;
+      margin-top: 20px;
     }
 
     .dot {
-      width: 35px;
-      height: 35px;
+      width: 20px;
+      height: 20px;
       border-radius: 50%;
       background-color: var(--dot-color);
-      transition: background-color 0.3s ease, transform 0.2s ease;
+      transition: background-color 0.3s, transform 0.2s;
     }
 
     .dot.lived {
@@ -74,9 +75,22 @@
       right: 15px;
       background: none;
       border: none;
-      font-size: 2rem;
+      font-size: 1.5rem;
       cursor: pointer;
       color: var(--text-color);
+    }
+
+    /* Responsive Adjustments */
+    @media (min-width: 768px) {
+      .dot {
+        width: 25px;
+        height: 25px;
+      }
+
+      input[type="number"] {
+        max-width: 300px;
+        font-size: 1.3rem;
+      }
     }
   </style>
 </head>
@@ -121,7 +135,6 @@
       htmlElement.setAttribute('data-theme', newTheme);
       localStorage.setItem('theme', newTheme);
 
-      // Change emoji
       themeToggle.textContent = newTheme === 'dark' ? '🌞' : '🌙';
     }
 
